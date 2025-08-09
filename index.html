@@ -31,14 +31,6 @@
 </head>
 
 <body>
-    <!-- Fixed logo -->
-    <div class="logo-container" id="logo-container">
-        <div class="logo-row">
-            <img src="assets/logo_header_transparent.png" alt="Unified Logo" class="logo" />
-            <h1>Unified</h1>
-        </div>
-    </div>
-
     <!-- Fixed phone mockup -->
     <div class="phone-container">
         <div class="phone">
@@ -164,7 +156,6 @@
                 const sections = document.querySelectorAll('.content-section');
                 const phoneScreenshots = document.getElementById('phone-screenshots');
                 const phoneContainer = document.querySelector('.phone-container');
-                const logoContainer = document.getElementById('logo-container');
                 const scrollPosition = window.scrollY;
                 const windowHeight = window.innerHeight;
                 const images = phoneScreenshots.querySelectorAll('img');
@@ -287,13 +278,6 @@
                     }
                 }
             });
-            
-            // Control fixed logo scroll timing
-            if (scrollProgress < 0.7) {
-                logoContainer.classList.remove('scroll-out');
-            } else {
-                logoContainer.classList.add('scroll-out');
-            }
             
             // Add parallax effect to background
             document.body.style.backgroundPosition = `0 ${scrollPosition * 0.5}px`;
