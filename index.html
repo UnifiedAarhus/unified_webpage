@@ -9,35 +9,336 @@
     <title>Unified – The University App</title>
     <link rel="icon" type="image/png" href="assets/logo_header_transparent.png" />
     <link rel="stylesheet" href="style.css" />
+    <script>
+        // Redirect mobile users to mobile.html
+        if (window.innerWidth <= 768 || /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            window.location.href = 'mobile.html';
+        }
+    </script>
 </head>
 
 <body>
-    <div class="container">
-        <div class="left">
-            <div class="logo-row">
-                <img src="assets/logo_header_transparent.png" alt="Unified Logo" class="logo" />
-                <h1>Unified</h1>
-            </div>
-            <p class="subtitle">Coming soon to Aarhus Universitet</p>
-            <p class="tagline">Designed by Midendian</p>
-
+    <!-- Fixed logo -->
+    <div class="logo-container" id="logo-container">
+        <div class="logo-row">
+            <img src="assets/logo_header_transparent.png" alt="Unified Logo" class="logo" />
+            <h1>Unified</h1>
         </div>
+    </div>
 
-        <div class="right">
-            <div class="phone">
-                <div class="screenshot-scroll">
-                    <img src="assets/home_page.png" alt="Screenshot 1" />
-                    <img src="assets/mail_inbox.png" alt="Screenshot 2" />
-                    <img src="assets/courses.png" alt="Screenshot 3" />
-                    <img src="assets/course_details.png" alt="Screenshot 4" />
-                    <img src="assets/assignments.png" alt="Screenshot 5" />
-                    <img src="assets/assignments_details.png" alt="Screenshot 6" />
-                    <img src="assets/schedule.png" alt="Screenshot 7" />
-                    <img src="assets/settings.png" alt="Screenshot 8" />
+    <!-- Fixed phone mockup -->
+    <div class="phone-container">
+        <div class="phone">
+            <div class="phone-scroll-container">
+                <div class="phone-screenshots" id="phone-screenshots">
+                    <img src="assets/home_page.png" alt="Home Page" />
+                    <img src="assets/mail_inbox.png" alt="Mail Inbox" />
+                    <img src="assets/courses.png" alt="Courses" />
+                    <img src="assets/course_details.png" alt="Course Details" />
+                    <img src="assets/assignments.png" alt="Assignments" />
+                    <img src="assets/assignments_details.png" alt="Assignment Details" />
+                    <img src="assets/schedule.png" alt="Schedule" />
+                    <img src="assets/settings.png" alt="Settings" />
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Scrollable content sections -->
+    <div class="scroll-sections">
+        <!-- Section 1 - Home -->
+        <section class="content-section hero-section" data-screenshot="assets/home_page.png">
+            <div class="text-content">
+                <div class="logo-row">
+                    <img src="assets/logo_header_transparent.png" alt="Unified Logo" class="logo" />
+                    <h1>Unified</h1>
+                </div>
+                <p class="hero-subtitle">The University App</p>
+                <p class="tagline">Building the future of student life<br/>One feature at a time</p>
+            </div>
+        </section>
+
+        <!-- Phone container placed in the middle for mobile -->
+        <div class="phone-container-mobile">
+            <div class="phone">
+                <div class="phone-scroll-container">
+                    <div class="phone-screenshots" id="phone-screenshots">
+                        <img src="assets/home_page.png" alt="Home Page" />
+                        <img src="assets/mail_inbox.png" alt="Mail Inbox" />
+                        <img src="assets/courses.png" alt="Courses" />
+                        <img src="assets/course_details.png" alt="Course Details" />
+                        <img src="assets/assignments.png" alt="Assignments" />
+                        <img src="assets/assignments_details.png" alt="Assignment Details" />
+                        <img src="assets/schedule.png" alt="Schedule" />
+                        <img src="assets/settings.png" alt="Settings" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 2 - Mail -->
+        <section class="content-section" data-screenshot="assets/mail_inbox.png">
+            <div class="text-content">
+                <h2 class="section-title">Connect</h2>
+                <p class="subtitle">Your inbox, reimagined</p>
+                <p class="tagline">Stay connected with professors, classmates, and university notifications in one unified space. Never miss important communications again.</p>
+            </div>
+        </section>
+
+        <!-- Section 3 - Courses -->
+        <section class="content-section" data-screenshot="assets/courses.png">
+            <div class="text-content">
+                <h2 class="section-title">Learn</h2>
+                <p class="subtitle">Your courses, organized</p>
+                <p class="tagline">Access all your course materials, schedules, and resources in one beautifully designed interface. Everything you need for academic success.</p>
+            </div>
+        </section>
+
+        <!-- Section 4 - Course Details -->
+        <section class="content-section" data-screenshot="assets/course_details.png">
+            <div class="text-content">
+                <h2 class="section-title">Explore</h2>
+                <p class="subtitle">Dive deeper into your studies</p>
+                <p class="tagline">Get detailed course information, reading lists, and interactive content at your fingertips. Make the most of your university experience.</p>
+            </div>
+        </section>
+
+        <!-- Section 5 - Assignments -->
+        <section class="content-section" data-screenshot="assets/assignments.png">
+            <div class="text-content">
+                <h2 class="section-title">Achieve</h2>
+                <p class="subtitle">Never miss a deadline</p>
+                <p class="tagline">Track assignments, submissions, and grades with intelligent notifications and progress tracking. Stay on top of your academic goals.</p>
+            </div>
+        </section>
+
+        <!-- Section 6 - Assignment Details -->
+        <section class="content-section" data-screenshot="assets/assignments_details.png">
+            <div class="text-content">
+                <h2 class="section-title">Focus</h2>
+                <p class="subtitle">Every detail matters</p>
+                <p class="tagline">Rich assignment details with attachments, rubrics, and submission tracking keep you organized and focused on your work.</p>
+            </div>
+        </section>
+
+        <!-- Section 7 - Schedule -->
+        <section class="content-section" data-screenshot="assets/schedule.png">
+            <div class="text-content">
+                <h2 class="section-title">Organize</h2>
+                <p class="subtitle">Your time, perfected</p>
+                <p class="tagline">Smart scheduling that adapts to your university life, with calendar integration and location awareness for seamless planning.</p>
+            </div>
+        </section>
+
+        <!-- Section 8 - Settings -->
+        <section class="content-section final-section" data-screenshot="assets/settings.png">
+            <div class="text-content">
+                <h2 class="section-title">Customize</h2>
+                <p class="subtitle">Coming Soon to<br/>Aarhus Universitet</p>
+                <p class="tagline">Designed by <span class="accent-text">Midendian</span></p>
+                <div class="availability-badge">
+                    <span>Launching 2026</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Desktop only - disable everything on mobile
+        if (window.innerWidth > 768) {
+            // Scroll-driven phone content with smooth animations and section sync
+            function updatePhoneScroll() {
+                const sections = document.querySelectorAll('.content-section');
+                const phoneScreenshots = document.getElementById('phone-screenshots');
+                const phoneContainer = document.querySelector('.phone-container');
+                const logoContainer = document.getElementById('logo-container');
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+                const images = phoneScreenshots.querySelectorAll('img');
+            
+            // Handle phone container visibility at page borders
+            const firstSection = sections[0];
+            const lastSection = sections[sections.length - 1];
+            
+            if (!firstSection || !lastSection) return;
+            
+            // Desktop scroll logic continues here...
+            // Handle phone container visibility - only at true page boundaries
+            const phoneAppearThreshold = 0; // Start immediately when page loads
+            const phoneDisappearThreshold = document.documentElement.scrollHeight - windowHeight * 1.2; // Only at very end
+            
+            // Only hide phone at absolute extremes
+            if (scrollPosition > phoneDisappearThreshold) {
+                // Phone scrolls down and out only at the very bottom
+                const hideProgress = Math.max(0, (scrollPosition - phoneDisappearThreshold) / (windowHeight * 0.3));
+                phoneContainer.style.transform = `translateY(${hideProgress * 80}px) scale(${1 - hideProgress * 0.1})`;
+                phoneContainer.style.opacity = Math.max(0.3, 1 - hideProgress * 0.7);
+            } else {
+                // Phone is always visible throughout the content
+                phoneContainer.style.transform = 'translateY(0px) scale(1)';
+                phoneContainer.style.opacity = '1';
+            }
+            
+            // Start phone scrolling much earlier by adjusting the start point
+            const startY = firstSection.offsetTop - (windowHeight * 0.01); // Start 80% of viewport height earlier (was 60%)
+            const endY = lastSection.offsetTop + lastSection.offsetHeight - windowHeight;
+            const totalScrollableHeight = endY - startY;
+            
+            // Calculate scroll progress (0 to 1) for smooth phone scrolling
+            let scrollProgress = Math.max(0, Math.min(1, (scrollPosition - startY) / totalScrollableHeight));
+            
+            // Apply smooth scrolling to phone with constant speed - no easing curve
+            let phoneScrollProgress = scrollProgress; // Linear progression for constant speed
+            
+            // Calculate phone scroll position
+            const phoneScrollHeight = phoneScreenshots.scrollHeight - phoneScreenshots.parentElement.clientHeight;
+            const phoneScrollPosition = phoneScrollProgress * phoneScrollHeight;
+            
+            // Safeguard against fast scrolling distortion - clamp values and add bounds checking
+            const clampedScrollPosition = Math.max(0, Math.min(phoneScrollPosition, phoneScrollHeight));
+            const rotationAngle = Math.max(-5, Math.min(5, scrollProgress * 2)); // Limit rotation to prevent distortion
+            
+            // Apply the smooth scroll position with 3D transform and safeguards
+            phoneScreenshots.style.transform = `translateY(-${clampedScrollPosition}px) perspective(1000px) rotateX(${rotationAngle}deg)`;
+            
+            // Reset any stuck transforms when at the very top
+            if (scrollPosition <= 50) {
+                phoneScreenshots.style.transform = `translateY(0px) perspective(1000px) rotateX(0deg)`;
+            }
+            
+            // Determine which section is most active for image highlighting
+            let currentSectionIndex = -1;
+            let maxVisibility = 0;
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const sectionBottom = rect.bottom;
+                
+                // Calculate section visibility
+                const visibleTop = Math.max(0, -sectionTop);
+                const visibleBottom = Math.max(0, sectionBottom - windowHeight);
+                const visibleHeight = rect.height - visibleTop - visibleBottom;
+                const visibilityRatio = Math.max(0, visibleHeight / rect.height);
+                
+                if (visibilityRatio > maxVisibility) {
+                    maxVisibility = visibilityRatio;
+                    currentSectionIndex = index;
+                }
+                
+                // Update active state for text fade effects
+                if (visibilityRatio > 0.3) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            
+            // Add cool scaling and rotation effects to individual images based on scroll position
+            images.forEach((img, index) => {
+                const imgRect = img.getBoundingClientRect();
+                const containerRect = phoneScreenshots.parentElement.getBoundingClientRect();
+                
+                // Safeguard against invalid dimensions
+                if (containerRect.height === 0 || imgRect.height === 0) return;
+                
+                // Calculate if image is in the center of the container
+                const imgCenter = imgRect.top + imgRect.height / 2;
+                const containerCenter = containerRect.top + containerRect.height / 2;
+                const distance = Math.abs(imgCenter - containerCenter);
+                const maxDistance = containerRect.height / 2;
+                
+                // Scale and opacity based on position with safeguards
+                const normalizedDistance = Math.max(0, Math.min(1, distance / maxDistance));
+                const scale = Math.max(0.85, Math.min(1.2, 1 - (normalizedDistance * 0.15))); // Clamp scale values
+                const opacity = Math.max(0.3, Math.min(1, 1 - (normalizedDistance * 0.4))); // Clamp opacity values
+                const rotation = Math.max(-15, Math.min(15, (imgCenter - containerCenter) * 0.02)); // Limit rotation
+                
+                // Enhanced highlighting for the section-matched image - reduced brightness
+                if (index === currentSectionIndex) {
+                    img.style.transform = `scale(${Math.max(scale, 1.05)}) rotateY(${rotation}deg)`;
+                    img.style.opacity = Math.max(opacity, 1);
+                    img.style.filter = 'brightness(1.05) saturate(1.1)'; // Reduced from 1.2/1.3 to 1.05/1.1
+                    img.style.zIndex = 15;
+                } else {
+                    img.style.transform = `scale(${scale}) rotateY(${rotation}deg)`;
+                    img.style.opacity = opacity;
+                    
+                    // Add special effects for center images - more natural brightness
+                    if (normalizedDistance < 0.3) {
+                        img.style.filter = 'brightness(1.02) saturate(1.05)'; // Reduced from 1.1/1.2 to 1.02/1.05
+                        img.style.zIndex = 10;
+                    } else {
+                        img.style.filter = 'brightness(0.9) saturate(0.95)'; // Less dramatic dimming
+                        img.style.zIndex = 1;
+                    }
+                }
+            });
+            
+            // Control fixed logo scroll timing
+            if (scrollProgress < 0.7) {
+                logoContainer.classList.remove('scroll-out');
+            } else {
+                logoContainer.classList.add('scroll-out');
+            }
+            
+            // Add parallax effect to background
+            document.body.style.backgroundPosition = `0 ${scrollPosition * 0.5}px`;
+        }
+        
+        // Enhanced easing function for smoother animations
+        function easeInOutQuart(t) {
+            return t < 0.5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t;
+        }
+        
+        // Keep the original easing function as well
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
+        }
+
+        // Throttled scroll handler for performance
+        let ticking = false;
+        function handleScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updatePhoneScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        // Mouse movement parallax effect (desktop only)
+        document.addEventListener('mousemove', (e) => {
+            // Disable on mobile
+            if (window.innerWidth <= 768) return;
+            
+            const mouseX = e.clientX / window.innerWidth;
+            const mouseY = e.clientY / window.innerHeight;
+            
+            const parallaxElements = document.querySelectorAll('.content-section.active');
+            parallaxElements.forEach((element) => {
+                const depth = 50;
+                const moveX = (mouseX - 0.5) * depth;
+                const moveY = (mouseY - 0.5) * depth;
+                element.style.transform = `translateY(0) scale(1) translate3d(${moveX}px, ${moveY}px, 0)`;
+            });
+        });
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', updatePhoneScroll);
+        
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            setTimeout(updatePhoneScroll, 100);
+        });
+        
+        // Add loading animation
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+        }
+    </script>
 </body>
 
 </html>
