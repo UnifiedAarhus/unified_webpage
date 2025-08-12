@@ -130,15 +130,17 @@ h1 {
 }
 
 .screenshot-scroll {
-    overflow-y: scroll;
+    overflow-y: auto;
+    /* was scroll */
     height: 100%;
-    scroll-behavior: smooth;
     width: 420px;
     flex-shrink: 0;
 
-    /* nicer manual scrolling */
-    scroll-snap-type: y proximity;
-    -webkit-overflow-scrolling: touch;
+    /* removed auto-scrolling behaviors */
+    /* scroll-behavior: smooth; */
+    /* scroll-snap-type: y proximity; */
+    -webkit-overflow-scrolling: auto;
+    /* was touch */
 }
 
 .screenshot-scroll img {
@@ -147,7 +149,8 @@ h1 {
     border-radius: 22px;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0);
-    scroll-snap-align: start;
+    /* removed scroll-snap-align */
+    /* scroll-snap-align: start; */
 }
 
 /* Scrollbar styling */
@@ -348,16 +351,5 @@ h1 {
     .screenshot-scroll img {
         border-radius: 16px;
         margin-bottom: 1rem;
-    }
-}
-
-/* Respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-    .screenshot-scroll {
-        scroll-behavior: auto;
-    }
-
-    .launch-badge {
-        transition: none;
     }
 }
