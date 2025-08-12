@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="icon" type="image/png" href="assets/logo_header_transparent.png" />
-
 
 <head>
+    <!-- Meta -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unified – The University App</title>
+    <meta name="description"
+        content="Unified brings courses, assignments, mail, and schedule into one app for Aarhus Universitet. Launching 2026." />
+    <meta property="og:title" content="Unified – The University App" />
+    <meta property="og:description" content="Coming soon to Aarhus Universitet. Launching 2026." />
+    <meta property="og:image" content="assets/logo_header_transparent.png" />
+    <meta name="theme-color" content="#111111" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/logo_header_transparent.png" />
+
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css" />
 </head>
 
@@ -18,14 +27,16 @@
                 <img src="assets/logo_header_transparent.png" alt="Unified Logo" class="logo" />
                 <h1>Unified</h1>
             </div>
-            <p class="subtitle">Coming soon to Aarhus Universitet</p>
+            <p class="subtitle">
+                Coming soon to Aarhus Universitet
+                <span class="launch-badge" aria-label="Launching 2026">Launching 2026</span>
+            </p>
             <p class="tagline">Designed by Midendian</p>
-
         </div>
 
         <div class="right">
             <div class="phone">
-                <div class="screenshot-scroll">
+                <div class="screenshot-scroll" aria-label="Unified app preview screenshots">
                     <img src="assets/home_page.png" alt="Screenshot 1" />
                     <img src="assets/mail_inbox.png" alt="Screenshot 2" />
                     <img src="assets/courses.png" alt="Screenshot 3" />
@@ -38,6 +49,44 @@
             </div>
         </div>
     </div>
+
+    <footer class="site-footer">
+        <small>Unified • Launching 2026 • unifiedapp.dev</small>
+    </footer>
+
+    <script>
+        // Gentle auto-scroll for the preview; respects reduced motion
+        (function () {
+            const scroller = document.querySelector('.screenshot-scroll');
+            if (!scroller) return;
+            const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReduced) return;
+
+            let dir = 1;
+            let rafId;
+            const speed = 0.35; // px per frame (~21px/s @60fps)
+
+            function tick() {
+                scroller.scrollTop += dir * speed;
+
+                const atBottom = Math.ceil(scroller.scrollTop + scroller.clientHeight) >= scroller.scrollHeight;
+                const atTop = scroller.scrollTop <= 0;
+                if (atBottom || atTop) dir *= -1;
+
+                rafId = requestAnimationFrame(tick);
+            }
+
+            function pause() { cancelAnimationFrame(rafId); }
+            function resume() { rafId = requestAnimationFrame(tick); }
+
+            scroller.addEventListener('mouseenter', pause);
+            scroller.addEventListener('mouseleave', resume);
+            scroller.addEventListener('focusin', pause);
+            scroller.addEventListener('focusout', resume);
+
+            tick();
+        })();
+    </script>
 </body>
 
 </html>
