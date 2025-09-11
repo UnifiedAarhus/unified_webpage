@@ -2,20 +2,107 @@
 <html lang="da">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Unified Brightspace Callback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        h1 {
+            color: #216058;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        #result {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            word-break: break-all;
+            padding: 10px;
+            background-color: #e6f2f2;
+            border-radius: 5px;
+            border: 1px solid #b2d8d8;
+        }
+
+        button {
+            background-color: #43DA89;
+            border: none;
+            padding: 12px 22px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin: 6px;
+        }
+
+        button:hover {
+            background-color: #36b775;
+        }
+
+        #copySuccess {
+            color: green;
+            margin-top: 10px;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <h1>Unified Brightspace login</h1>
-    <p>Du er nu tilbage fra Brightspace login.<br>
-        Kopiér koden herunder og indsæt den i appen (eller tryk launch, hvis din app er installeret):</p>
-    <div id="result"></div>
+    <p>
+        Du er nu tilbage fra Brightspace login.<br />
+        Kopiér koden herunder og indsæt den i appen (eller tryk launch, hvis din app er installeret):
+    </p>
+
+    <div id="result">Ingen kode modtaget.</div>
+
+    <button onclick="copyCode()">Kopier kode</button>
     <button onclick="launchApp()">Launch Unified App</button>
+
+    <div id="copySuccess">Koden er kopieret!</div>
+
     <script>
         const params = new URLSearchParams(window.location.search);
         const code = params.get('code');
-        document.getElementById('result').innerText = code ? `Code: ${code}` : 'Ingen kode modtaget.';
+
+        const resultDiv = document.getElementById('result');
+        const copySuccessDiv = document.getElementById('copySuccess');
+
+        if (code) {
+            resultDiv.innerText = code;
+        } else {
+            resultDiv.innerText = 'Ingen kode modtaget.';
+        }
+
+        function copyCode() {
+            if (!code) return;
+            navigator.clipboard.writeText(code).then(() => {
+                copySuccessDiv.style.display = 'block';
+                setTimeout(() => {
+                    copySuccessDiv.style.display = 'none';
+                }, 2000);
+            }, () => {
+                alert('Kunne ikke kopiere koden');
+            });
+        }
+
         function launchApp() {
             if (code) {
                 window.location.href = `unified://auth-callback?code=${code}`;
