@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Unified Brightspace Callback</title>
+</head>
+
+<body>
+    <h1>Unified Brightspace login</h1>
+    <p>Du er nu tilbage fra Brightspace login.<br>
+        Kopiér koden herunder og indsæt den i appen (eller tryk launch, hvis din app er installeret):</p>
+    <div id="result"></div>
+    <button onclick="launchApp()">Launch Unified App</button>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        document.getElementById('result').innerText = code ? `Code: ${code}` : 'Ingen kode modtaget.';
+        function launchApp() {
+            if (code) {
+                window.location.href = `unified://auth-callback?code=${code}`;
+            }
+        }
+    </script>
+</body>
+
+</html>
