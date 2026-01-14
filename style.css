@@ -61,6 +61,7 @@ body {
     border-radius: 50%;
     filter: blur(120px);
     opacity: 0.5;
+    display: none;
 }
 
 .orb-1 {
@@ -191,6 +192,39 @@ body {
 .launch-text {
     text-transform: uppercase;
     letter-spacing: 0.08em;
+}
+
+/* Platform Badges */
+.platform-badges {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.platform-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    box-shadow: 0 2px 8px var(--shadow-soft);
+    transition: all var(--transition);
+}
+
+.platform-badge:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.platform-icon {
+    width: 18px;
+    height: 18px;
 }
 
 /* =============================================
