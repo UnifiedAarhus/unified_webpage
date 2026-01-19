@@ -25,7 +25,9 @@
     --transition: 0.25s ease;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -116,8 +118,11 @@ body {
 }
 
 .logo {
-    width: 140px;
-    height: 140px;
+    width: clamp(140px, 20vw, 200px);
+    height: auto;
+    max-height: 200px;
+    display: block;
+    object-fit: contain;
     border-radius: var(--radius-xl);
     transition: transform var(--transition);
 }
@@ -185,8 +190,15 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-3px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-3px);
+    }
 }
 
 .launch-text {
@@ -289,8 +301,15 @@ body {
 }
 
 @keyframes blink-dot {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
 }
 
 .terminal-body {
@@ -345,14 +364,33 @@ body {
 }
 
 @keyframes typing {
-    0%, 10% { width: 0; }
-    30%, 70% { width: 100%; }
-    90%, 100% { width: 0; }
+
+    0%,
+    10% {
+        width: 0;
+    }
+
+    30%,
+    70% {
+        width: 100%;
+    }
+
+    90%,
+    100% {
+        width: 0;
+    }
 }
 
 @keyframes cursor-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .terminal-output {
@@ -389,8 +427,15 @@ body {
 }
 
 @keyframes text-blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* =============================================
@@ -628,9 +673,20 @@ body {
         margin: 0 auto;
     }
 
-    .orb-1 { width: 400px; height: 400px; }
-    .orb-2 { width: 350px; height: 350px; }
-    .orb-3 { width: 300px; height: 300px; }
+    .orb-1 {
+        width: 400px;
+        height: 400px;
+    }
+
+    .orb-2 {
+        width: 350px;
+        height: 350px;
+    }
+
+    .orb-3 {
+        width: 300px;
+        height: 300px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -702,7 +758,10 @@ body {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+
+    *,
+    *::before,
+    *::after {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
