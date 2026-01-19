@@ -121,6 +121,7 @@ body {
     width: clamp(140px, 20vw, 200px);
     height: auto;
     max-height: 200px;
+    max-width: 100%;
     display: block;
     object-fit: contain;
     border-radius: var(--radius-xl);
@@ -642,8 +643,9 @@ body {
     }
 
     .logo {
-        width: 120px;
-        height: 120px;
+        width: clamp(140px, 28vw, 190px);
+        height: auto;
+        max-height: 190px;
     }
 
     .title-main {
@@ -699,8 +701,9 @@ body {
     }
 
     .logo {
-        width: 100px;
-        height: 100px;
+        width: clamp(120px, 38vw, 170px);
+        height: auto;
+        max-height: 170px;
     }
 
     .tagline {
